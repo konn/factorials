@@ -1,0 +1,81 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: a6a57e83cbb1f505143844a0faea5206eefda4216e609059fb305f46a1a75106
+
+name:           factorials
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/factorials#readme>
+homepage:       https://github.com/githubuser/factorials#readme
+bug-reports:    https://github.com/githubuser/factorials/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2020 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/factorials
+
+library
+  exposed-modules:
+      Math.NumberTheory.Factorial
+      Math.NumberTheory.Factorial.Naive
+      Math.NumberTheory.Factorial.Swing.Factorisation
+      Math.NumberTheory.Factorial.Swing.Recursion
+  other-modules:
+      Paths_factorials
+  hs-source-dirs:
+      src
+  build-depends:
+      arithmoi
+    , base >=4.7 && <5
+    , integer-logarithms
+  default-language: Haskell2010
+
+test-suite factorials-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Math.NumberTheory.Factorial.NaiveSpec
+      Math.NumberTheory.Factorial.Swing.FactorisationSpec
+      Math.NumberTheory.Factorial.Swing.RecursionSpec
+      Paths_factorials
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-tool-depends:
+      tasty-discover:tasty-discover
+  build-depends:
+      arithmoi
+    , base >=4.7 && <5
+    , factorials
+    , integer-logarithms
+    , tasty
+    , tasty-discover
+    , tasty-quickcheck
+  default-language: Haskell2010
+
+benchmark factorials-bench
+  type: exitcode-stdio-1.0
+  main-is: bench.hs
+  other-modules:
+      Paths_factorials
+  hs-source-dirs:
+      bench
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      arithmoi
+    , base >=4.7 && <5
+    , factorials
+    , gauge
+    , integer-logarithms
+  default-language: Haskell2010
