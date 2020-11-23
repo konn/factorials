@@ -1,7 +1,8 @@
 {-# LANGUAGE BangPatterns #-}
 
--- | Provides a naïve factorial function, just
---   using list or strict recursion to takes product of it.
+{- | Provides a naïve factorial function, just
+   using list or strict recursion to takes product of it.
+-}
 module Math.NumberTheory.Factorial.Naive where
 
 import Data.List (foldl')

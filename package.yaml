@@ -48,6 +48,7 @@ tests:
     - tasty
     - tasty-discover
     - tasty-quickcheck
+    - tasty-hunit
 
 benchmarks:
   factorials-bench:
