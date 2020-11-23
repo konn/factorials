@@ -26,6 +26,12 @@ dependencies:
 
 library:
   source-dirs: src
+  dependencies:
+  - vector
+  - vector-algorithms
+  - integer-roots
+  - foldl
+  - comonad
 
 tests:
   factorials-test:

@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a6a57e83cbb1f505143844a0faea5206eefda4216e609059fb305f46a1a75106
+-- hash: f0fdb1a298399435176f93aab99ac6c72686ce4a33e59a0a39a5078f05678b28
 
 name:           factorials
 version:        0.1.0.0
@@ -38,7 +38,12 @@ library
   build-depends:
       arithmoi
     , base >=4.7 && <5
+    , comonad
+    , foldl
     , integer-logarithms
+    , integer-roots
+    , vector
+    , vector-algorithms
   default-language: Haskell2010
 
 test-suite factorials-test
