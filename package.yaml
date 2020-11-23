@@ -55,9 +55,16 @@ benchmarks:
     main: bench.hs
     source-dirs: bench
     ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+    - -O
     dependencies:
     - factorials
     - gauge
+
+  factorials-space-bench:
+    main: space.hs
+    source-dirs: bench
+    ghc-options:
+    - -O
+    dependencies:
+    - factorials
+    - weigh
