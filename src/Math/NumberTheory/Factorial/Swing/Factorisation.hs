@@ -8,7 +8,7 @@ import Control.Comonad
 import qualified Control.Foldl as L
 import Control.Monad (guard)
 import Control.Monad.ST
-import Data.Bits (Bits (popCount))
+import Data.Bits (Bits (popCount), shiftL)
 import Data.Foldable (Foldable (foldl'))
 import qualified Data.Vector as V
 import Data.Vector.Algorithms.Search
@@ -26,8 +26,8 @@ fastFactorial :: Integer -> Integer
 fastFactorial n
   | n < 10 = Naive.factorial' n
   | otherwise =
-    let bs = n - fromIntegral (popCount n)
-     in fastOddFactorial n (primesTo n) * 2 ^ bs
+    let bs = fromIntegral n - popCount n
+     in fastOddFactorial n (primesTo n) `shiftL` bs
 
 fastOddFactorial :: Integer -> V.Vector (Prime Integer) -> Integer
 fastOddFactorial n ps

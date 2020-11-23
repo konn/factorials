@@ -14,8 +14,8 @@ factorial :: Integer -> Integer
 factorial n
   | n < 10 = Naive.factorial' n
   | otherwise =
-    let bc = n - fromIntegral (popCount n)
-     in getFst (oddFractional n) * 2 ^ bc
+    let bc = fromInteger n - popCount n
+     in getFst (oddFractional n) `shiftL` bc
 
 fallingSemifrac :: Integer -> Integer -> Integer
 fallingSemifrac !m !p
